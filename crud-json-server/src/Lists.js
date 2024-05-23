@@ -28,4 +28,4 @@ function Lists(props) {
     )
 }
 
-export defualt Lists;
+export default Lists;
