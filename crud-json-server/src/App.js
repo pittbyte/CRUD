@@ -14,6 +14,7 @@ class App extends React.Component {
       },
     };
   }
+
   getLists = () => {
     this.setState({ loading: true });
     fetch("http://localhost:5000/posts")
@@ -26,6 +27,7 @@ class App extends React.Component {
       })
       .catch(console.log);
   };
+
   getList = (event, id) => {
     this.setState(
       {
@@ -80,8 +82,9 @@ class App extends React.Component {
       })
       .catch(console.log);
   };
+
   updateList = (event, id) => {
-    fetch("http://localhost:5000/posts" + id, {
+    fetch("http://localhost:5000/posts/" + id, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -99,6 +102,7 @@ class App extends React.Component {
         this.getLists();
       });
   };
+
   deleteList = (event, id) => {
     fetch("http://localhost:5000/posts/" + id, {
       method: "DELETE",
@@ -115,6 +119,7 @@ class App extends React.Component {
       })
       .catch(console.log);
   };
+
   render() {
     const listTable = this.state.loading ? (
       <span>Loading Data ......Please be patient.</span>
